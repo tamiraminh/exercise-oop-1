@@ -19,7 +19,7 @@ type FileReader struct {
 	player2Missile []string
 }
 
-func NewFileReader(filepath string) *FileReader {
+func NewFileReader() *FileReader {
 	f := FileReader{}
 
 	return &f
@@ -40,7 +40,7 @@ func (f *FileReader) ReadFile(filepath string) {
 	}
 	fmt.Printf("\nFile Name: %s", filepath)
 	fmt.Printf("\nSize: %d bytes", len(data))
-	fmt.Printf("\nData: %s", data)
+	fmt.Printf("\nData: %s\n\n", data)
 
 	f.data = strings.Split(string(data), "\n")
 

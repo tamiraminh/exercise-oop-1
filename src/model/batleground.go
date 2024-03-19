@@ -1,5 +1,7 @@
 package model
 
+import "fmt"
+
 type Batleground struct {
 	surface  [][]string
 	gridSize int
@@ -22,7 +24,7 @@ func NewBattleground(size int) *Batleground {
 }
 
 func (b Batleground) IsShip(x, y int) bool {
-	return b.surface[x][y] == "S"
+	return b.surface[x][y] == "B"
 }
 
 func (b Batleground) IsEmpty(x, y int) bool {
@@ -39,4 +41,10 @@ func (b Batleground) SetMissile(x, y int) {
 
 func (b Batleground) SetDeadShip(x, y int) {
 	b.surface[x][y] = "X"
+}
+
+func (b Batleground) PrintSurface() {
+	for i := 0; i < b.gridSize; i++ {
+		fmt.Println(b.surface[i])
+	}
 }
