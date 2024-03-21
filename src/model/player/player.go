@@ -1,6 +1,7 @@
-package model
+package player
 
 import (
+	"exercise-battleship-2/src/model/battleground"
 	"strconv"
 	"strings"
 )
@@ -8,7 +9,7 @@ import (
 type Player struct {
 	activeShips int
 	numShips    int
-	ground      *Batleground
+	ground      *battleground.Batleground
 	totalPoints int
 	totalMissle int
 }
@@ -17,7 +18,7 @@ func NewPlayer(nShip int, nMissile int, gridSize int) *Player {
 	p := Player{
 		activeShips: nShip,
 		numShips:    nShip,
-		ground:      NewBattleground(gridSize),
+		ground:      battleground.NewBattleground(gridSize),
 		totalPoints: 0,
 		totalMissle: nMissile,
 	}
@@ -29,7 +30,7 @@ func (p Player) GetTotalPoints() int {
 	return p.totalPoints
 }
 
-func (p Player) GetBatleground() Batleground {
+func (p Player) GetBatleground() battleground.Batleground {
 	return *p.ground
 }
 

@@ -1,10 +1,13 @@
-package model
+package battleship
 
-import "fmt"
+import (
+	"exercise-battleship-2/src/model/player"
+	"fmt"
+)
 
 type Battleship struct {
-	player1    *Player
-	player2    *Player
+	player1    *player.Player
+	player2    *player.Player
 	gridSize   int
 	numShip    int
 	numMissile int
@@ -12,8 +15,8 @@ type Battleship struct {
 
 func NewGame(nShp int, gridSize int, nMissile int, p1ShipPos []string, p2ShipPos []string) *Battleship {
 	b := Battleship{
-		player1:    NewPlayer(nShp, nMissile, gridSize),
-		player2:    NewPlayer(nShp, nMissile, gridSize),
+		player1:    player.NewPlayer(nShp, nMissile, gridSize),
+		player2:    player.NewPlayer(nShp, nMissile, gridSize),
 		gridSize:   gridSize,
 		numShip:    nShp,
 		numMissile: nMissile,
